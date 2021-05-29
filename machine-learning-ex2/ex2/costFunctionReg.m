@@ -19,8 +19,15 @@ grad = zeros(size(theta));
 
 
 
+hypothesis = sigmoid (X*theta);
+temp = y'*log(hypothesis) + (1-y)'*log(1-hypothesis);
+theta_sq = theta.*theta;
+theta_sq(1) = 0;
+J = -1/m * temp + lambda/(2*m) * sum(theta_sq);
 
-
+temp_theta = theta;
+temp_theta (1) = 0;
+grad = 1/m * X'*(hypothesis - y) + lambda/m .* temp_theta; 
 
 % =============================================================
 
