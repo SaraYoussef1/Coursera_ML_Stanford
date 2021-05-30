@@ -30,6 +30,9 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
+predicted = sigmoid (all_theta*X');
+[preobability, id] = max(predicted);
+p = id';
 
 
 
